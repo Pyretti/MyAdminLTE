@@ -159,12 +159,21 @@
 						<ul class="list-group list-group-unbordered">
 							<li class="list-group-item">
 								<b>Maija Meikäläinen</b>
+                                <span style="float: right;">
+                                    <i class="fa fa-male"></i><i class="fa fa-home"></i>
+                                </span>
 							</li>
 							<li class="list-group-item">
 								<b>Matias Meikäläinen</b>
+                                <span style="float: right;">
+                                    <i class="fa fa-male"></i><i class="fa fa-home"></i>
+                                </span>
 							</li>
 							<li class="list-group-item">
 								<b>Mari Meikäläinen</b>
+                                <span style="float: right;">
+                                    <i class="fa fa-car"></i>
+                                </span>
 							</li>
 						</ul>
 					</div><!-- /.box-body -->
@@ -314,6 +323,11 @@
 							<h3 class="box-title">Tietoja</h3>
 							</div><!-- /.box-header -->
 							<div class="box-body">
+                                
+                                <div class="chart">
+                                    <canvas height="100px" width="781px" id="priceChart" <!--</canvas>style="height: 247px; width: 781px;"-->></canvas>
+                                </div>
+                                
 								<div class="row">
 									<div class="col-sm-6">
 										<b>Vakuutusnumero #007612</b><br>
@@ -357,7 +371,7 @@
           Anything you want
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2015 <a href="#">OmaMeklari Oy</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2015 <a href="#">Omameklari Oy</a>.</strong> All rights reserved.
       </footer>
     </div><!-- ./wrapper -->
 
@@ -371,6 +385,33 @@
     <script src="../../dist/js/app.min.js"></script>
 	<!-- Own custom code -->
 	<script src="../../dist/js/custom.js"></script>
+    
+    <script src="../../plugins/chartjs/Chart.js"></script>
+    <script>
+        
+        var data = {
+            labels: ["12.7.2012","12.7.2013","12.7.2014", "12.7.2015"],
+            datasets: [
+                {
+                    label: "Hintakehitys",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: [990, 970, 1100, 1000]
+                }
+            ]
+        };
+
+        
+        var ctx = document.getElementById("priceChart").getContext("2d");
+        var options = {
+                bezierCurve: false
+            }
+        var priceChart = new Chart(ctx).Line(data, options);
+    </script>
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
          user experience. Slimscroll is required when using the
