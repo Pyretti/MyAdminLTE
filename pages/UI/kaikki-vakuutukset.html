@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Asiakas</title>
+    <title>Asiakashaku</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -18,6 +18,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+	<!-- DataTables -->
+    <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.
@@ -62,7 +64,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini">OM</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg uppercase">Omameklari</span>
+          <span class="logo-lg">Omameklari</span>
         </a>
 
         <!-- Header Navbar -->
@@ -78,8 +80,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="dropdown user user-menu">
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<!-- hidden-xs hides the username on small devices so only the image appears. -->
-					<span>Jari Heikkinen </span>
+                  <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                  <span>Jari Heikkinen </span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- Menu body-->
@@ -124,145 +126,74 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Asiakas
+            Asiakkaan vakuutukset
           </h1>
         </section>
 
         <!-- Main content -->
         <section class="content">
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-12">             
               <div class="box">
-                <div class="box-body box-profile">
-                  <h3 class="profile-username text-center">Matti Meikäläinen</h3>
-                  <ul class="list-group list-group-unbordered">
-                    <li class="list-group-item">
-                      <b>Liittyi asiakkaaksi</b> <a class="pull-right">8.12.2015</a>
-                    </li>
-                    <li class="list-group-item">
-                      <b>Vakuutuksia</b> <a class="pull-right">10</a>
-                    </li>
-                    <li class="list-group-item">
-                      <b>Vakuutukset yhteensä</b> <a class="pull-right">13 500€ €</a>
-                    </li>
-                  </ul>
-				  <div class="row">
+                <div class="box-body">
+					<div id="printableArea">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Vakuutuslaji</th>
+						<th>Nimi</th>
+                        <th>Vakuutusyhtiö</th>
+                        <th>Vakuutusyhtiön vakuutusnumero</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Henkilövakuutukset</td>
+                        <td>Henkivakuutus</td>
+                        <td>Fennia</td>
+                        <td>0123753789</td>
+                      </tr>
+                      <tr>
+                        <td>Liikennevakuutukset</td>
+                        <td>Liikennevakuutus</td>
+                        <td>IF</td>
+                        <td>009137109D</td>
+                      </tr>
+                      <tr>
+                        <td>Yrityksen Henkilövakuutukset</td>
+                        <td>Pakollinen Tapaturmavakuutus</td>
+                        <td>OP-Pohjola</td>
+                        <td>521512AAf4</td>
+                      </tr>
+                      <tr>
+                        <td>Yrityksen omaisuusvakuutukset</td>
+                        <td>Toimitilan ja irtaimiston vakuutus</td>
+                        <td>Tapiola</td>
+                        <td>0123453459</td>
+                      </tr>
+					  <tr>
+                        <td>Yrityksen työeläkevakuutus</td>
+                        <td>Pakollinen tyel vakuutus</td>
+                        <td>Ilmarinen</td>
+                        <td>0123453459</td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>Vakuutuslaji</th>
+						<th>Nimi</th>
+                        <th>Vakuutusyhtiö</th>
+                        <th>Vakuutusyhtiön vakuutusnumero</th>
+                      </tr>
+                    </tfoot>
+                  </table>			  
+				  		<div class="row">
 						<div class="col-xs-12">
-							<a href="#" class="btn btn-success"><i class="fa fa-plus"></i> Lisää vakuutus</a>
+						<input type="button" onclick="printDiv('printableArea')" value="Tulosta" />
 						</div>
-					</div>
+						</div> <!-- Tulostus -->
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
-			  
-			   <div class="box">
-                <div class="box-header without-border">
-                  <h3 class="box-title">Yritykset</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-					<ul class="list-group list-group-unbordered">
-						<li class="list-group-item">
-						<b>RakennusMeikäläinen</b>
-						</li>
-						<li class="list-group-item">
-						<b>KuljetusMeikäläinen</b>
-						</li>
-						<li class="list-group-item">
-						<b>MetsätyöMeikäläinen</b>
-						</li>
-						<li class="list-group-item">
-						<b>Yritys4</b>
-						</li>
-					</ul>
-					<div class="row">
-						<div class="col-xs-12">
-							<a href="#" class="btn btn-success"><i class="fa fa-user-plus"></i> Lisää Yritys</a>
-							<a href="#" class="btn btn-danger pull-right"><i class="fa fa-trash-o"></i> Poista</a>
-						</div>
-					</div>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-			  			  
-              <div class="box">
-                <div class="box-header without-border">
-                  <h3 class="box-title">Meikäläinen</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-					<ul class="list-group list-group-unbordered">
-						<li class="list-group-item">
-						<b>Maija Meikäläinen</b>
-						</li>
-						<li class="list-group-item">
-						<b>Matias Meikäläinen</b>
-						</li>
-						<li class="list-group-item">
-						<b>Jeremias Meikäläinen</b>
-						</li>
-					</ul>
-					<div class="row">
-						<div class="col-xs-12">
-							<a href="#" class="btn btn-success"><i class="fa fa-user-plus"></i> Lisää perheenjäsen</a>
-							<a href="#" class="btn btn-danger pull-right"><i class="fa fa-trash-o"></i> Poista</a>
-						</div>
-					</div>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-			  
-			 <div class="box">
-                <div class="box-header without-border">
-                  <h3 class="box-title">Kolehmainen</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-					<ul class="list-group list-group-unbordered">
-						<li class="list-group-item">
-						<b>Liisa Kolehmainen</b>
-						</li>
-						<li class="list-group-item">
-						<b>Juuso Kolehmainen</b>
-						</li>
-						<li class="list-group-item">
-						<b>Jannika Kolehmainen</b>
-						</li>
-					</ul>
-					<div class="row">
-						<div class="col-xs-12">
-							<a href="#" class="btn btn-success"><i class="fa fa-user-plus"></i> Lisää perheenjäsen</a>
-							<a href="#" class="btn btn-danger pull-right"><i class="fa fa-trash-o"></i> Poista</a>
-						</div>
-					</div>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-            <div class="col-md-9">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Tietoja</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-					<form>
-						<div class="form-group">
-							<label for="inputEmail">Sähköposti</label>
-							<input type="email" class="form-control" id="inputEmail" value="example@email.com"></input>
-						</div>
-						<div class="form-group">
-							<label for="inputPhone">Puhelinnumero</label>
-							<input type="text" class="form-control" id="inputPhone" value="0123456789">
-						</div>
-						<div class="form-group">
-							<label for="inputAddress">Katuosoite</label>
-							<input type="text" class="form-control" id="inputAddress" value="Katu 1">
-						</div>
-						<div class="form-group">
-							<label for="inputZipCode">Postinumero</label>
-							<input type="text" class="form-control" id="inputZipCode" value="70100">
-						</div>
-						<div class="form-group">
-							<label for="inputTown">Kaupunki</label>
-							<input type="text" class="form-control" id="inputTown" value="Kuopio">
-						</div>
-						<button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Tallenna</button>
-					</form>
-                </div><!-- /.box-body -->
-              </div><!-- /.nav-tabs-custom -->
             </div><!-- /.col -->
           </div><!-- /.row -->
         </section><!-- /.content -->
@@ -272,10 +203,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-          Anything you want
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2015 <a href="#">Omameklari Oy</a>.</strong> All rights reserved.
+       <strong>Copyright &copy; 2015 <a href="#">Omameklari Oy</a>.</strong> All rights reserved.
       </footer>
 
 
@@ -292,6 +222,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="../../dist/js/app.min.js"></script>
 	<!-- Own custom code -->
 	<script src="../../dist/js/custom.js"></script>
+	<!-- DataTables -->
+    <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+	<script>
+      $(function () {
+        
+        $('#example1').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+        });
+      });
+    </script>
+	
+	<script>
+	function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+	}
+	</script>
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
          user experience. Slimscroll is required when using the
